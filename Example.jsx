@@ -5,7 +5,7 @@ import { useQuery } from "react-query";
 export default function Example() {
   const { isLoading, error, data, isFetching } = useQuery("repoData", () =>
     fetch(
-      "https://api.github.com/repos/tannerlinsley/react-query"
+      "https://api.github.com/repos/arybins/snowdev"
     ).then((res) => res.json())
   );
 
