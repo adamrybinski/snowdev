@@ -5,7 +5,7 @@ import { useQuery, QueryClient, QueryClientProvider } from "react-query";
 const queryClient = new QueryClient();
 
 function App() {
-  const { isLoading, error, data, isFetching } = useQuery("repoData", () =>
+  const { isLoading, error, data } = useQuery("repoData", () =>
   fetch(
     "https://api.github.com/repos/arybins/snowdev"
   ).then((res) => res.json())
@@ -21,7 +21,7 @@ function App() {
           <strong>👀 {data.subscribers_count}</strong>{" "}
           <strong>✨ {data.stargazers_count}</strong>{" "}
           <strong>🍴 {data.forks_count}</strong>
-          <div>{isFetching ? "Updating..." : ""}</div>
+          <div>{isLoading ? "Updating..." : ""}</div>
         </div>
     );
 }
